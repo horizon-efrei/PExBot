@@ -1,7 +1,7 @@
 {
-  "name": "horizonbot",
-  "version": "1.5.2",
-  "description": "The discord bot for Ef'Réussite",
+  "name": "pexbot",
+  "version": "1.0.0",
+  "description": "The discord bot for Ef'Réussite : PEx",
   "main": "./dist/src/main.js",
   "scripts": {
     "build": "tsc",
@@ -13,9 +13,6 @@
   },
   "keywords": [],
   "author": "Elliot 'noftaly' Maisl",
-  "contributors": [
-    "Kethash"
-  ],
   "license": "MIT",
   "repository": {
     "type": "github",
