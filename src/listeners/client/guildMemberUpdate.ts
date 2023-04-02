@@ -23,8 +23,11 @@ export default class GuildMemberUpdateListener extends Listener {
     const roleFiveYearDigital = await this.container.client.configManager.get(ConfigEntries.FiveYearDigital, guildId);
     const roleFiveYearTech = await this.container.client.configManager.get(ConfigEntries.FiveYearTech, guildId);
 
+    const rolePex = await this.container.client.configManager.get(ConfigEntries.Pex, guildId);
+    const rolePge = await this.container.client.configManager.get(ConfigEntries.Pge, guildId);
+
     // eslint-disable-next-line max-len
-    if (!roleBachelor || !roleBts || !roleMaster || !roleMasterOfScience || !roleDigital || !roleTech || !roleThreeYearDigital || !roleThreeYearTech || !roleFiveYearDigital || !roleFiveYearTech) {
+    if (!roleBachelor || !roleBts || !roleMaster || !roleMasterOfScience || !roleDigital || !roleTech || !roleThreeYearDigital || !roleThreeYearTech || !roleFiveYearDigital || !roleFiveYearTech || !rolePex || !rolePge) {
       this.container.logger.warn(`[GuildMemberUpdateListener] Missing roles for guild ${guildId}`);
       return;
     }
@@ -43,5 +46,12 @@ export default class GuildMemberUpdateListener extends Listener {
       await newMember.roles.add(roleFiveYearDigital);
     else if (isFiveYear && isTech && !newMember.roles.cache.has(roleFiveYearTech.id))
       await newMember.roles.add(roleFiveYearTech);
+
+    if ((isDigital || isTech)
+      && (newMember.roles.cache.has(rolePge.id) || !newMember.roles.cache.has(rolePex.id))
+    ) {
+      await newMember.roles.add(rolePex);
+      await newMember.roles.remove(rolePge);
+    }
   }
 }

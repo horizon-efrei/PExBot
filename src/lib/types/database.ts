@@ -12,6 +12,8 @@ export enum ConfigEntries {
   ThreeYearTech = 'role-three-year-tech',
   FiveYearDigital = 'role-five-year-digital',
   FiveYearTech = 'role-five-year-tech',
+  Pex = 'role-pex',
+  Pge = 'role-pge',
 }
 
 /** Interface for the "Configuration"'s mongoose schema */

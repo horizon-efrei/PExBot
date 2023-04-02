@@ -25,6 +25,8 @@ const roleEntries = {
   [ConfigEntries.ThreeYearTech]: 'BTS/Bachelor - Tech',
   [ConfigEntries.FiveYearDigital]: 'MSc/Mastère - Digital',
   [ConfigEntries.FiveYearTech]: 'MSc/Mastère - Tech',
+  [ConfigEntries.Pex]: 'PEx',
+  [ConfigEntries.Pge]: 'PGE',
 } as const;
 
 const roleChoices = Object.entries(roleEntries).map(([value, name]) => ({ name, value }));
